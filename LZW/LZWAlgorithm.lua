@@ -67,10 +67,16 @@ function CLZWCompression:Decode(data)
 	for i = 2, #data do
 		currCode = data[i]
 		entry = dic[currCode]
-		result[#result + 1] = entry
-	
-		ch = string.sub(entry, 1, 1)
+		if entry then--exists in dictionary
+			ch = string.sub(entry, 1, 1)		
+			result[#result + 1] = entry
+		else	
+			ch = string.sub(dic[prevCode], 1, 1)
+			result[#result + 1] = dic[prevCode]..ch
+		end
+		
 		dic[#dic + 1] = dic[prevCode]..ch
+		
 		prevCode = currCode
 	end
 	
