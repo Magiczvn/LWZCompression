@@ -1,3 +1,9 @@
+--[[
+LZW String Compression demo for Gideros
+This code is MIT licensed, see http://www.opensource.org/licenses/mit-license.php
+(C) 2013 - Guava7
+]]
+
 CLZWCompression = Core.class()
 
 function CLZWCompression:init()
@@ -84,7 +90,7 @@ function CLZWCompression:Decode(data)
 end
 
 local compressor = CLZWCompression.new()
-local originalString = "As you can see, the decoder comes across an index of 4 while the entry that belongs there is currently being processed. To understand why this happens, take a look at the encoding table. Immediately after \"aba\" (with an index of 4) is entered into the dictionary, the next substring that is encoded is an \"aba\""
+local originalString = "Lempel-Ziv-Welch (LZW) is a universal lossless data compression algorithm created by Abraham Lempel, Jacob Ziv, and Terry Welch. It was published by Welch in 1984 as an improved implementation of the LZ78 algorithm published by Lempel and Ziv in 1978. The algorithm is simple to implement, and has the potential for very high throughput in hardware implementations.[1] It was the algorithm of the widely used Unix file compression utility compress, and is used in the GIF image format."
 local encodedData = compressor:Encode(originalString)
 
 	
